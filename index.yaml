@@ -2,6 +2,19 @@ apiVersion: v1
 entries:
   kargo-demo-app:
   - apiVersion: v2
+    appVersion: 0.5.0
+    created: "2023-11-06T21:22:29.822499894Z"
+    dependencies:
+    - alias: app
+      name: generic-chart
+      repository: https://baloise-incubator.github.io/generic-chart/
+      version: 2.3.0
+    digest: e6b790286c62d2b31f96fcc05f9363faeb998738c4552a2c98a6fdcd821c005d
+    name: kargo-demo-app
+    urls:
+    - https://github.com/baloise-incubator/kargo-demo-app/releases/download/kargo-demo-app-0.5.0/kargo-demo-app-0.5.0.tgz
+    version: 0.5.0
+  - apiVersion: v2
     appVersion: 0.3.0
     created: "2023-11-06T13:17:51.227106719Z"
     dependencies:
@@ -27,4 +40,4 @@ entries:
     urls:
     - https://github.com/baloise-incubator/kargo-demo-app/releases/download/kargo-demo-app-0.2.0/kargo-demo-app-0.2.0.tgz
     version: 0.2.0
-generated: "2023-11-06T13:17:51.227159619Z"
+generated: "2023-11-06T21:22:29.822512795Z"
