@@ -139,11 +139,27 @@ jobs:
       - name: Wait 1min for chart
         if: ${{ github.event_name != 'pull_request' && startsWith(github.ref, 'refs/tags/v') }}
         run: sleep 60
-      - name: Reload warehouse
+      - name: Reload warehouse kargo-demo-simple
         if: ${{ github.event_name != 'pull_request' && startsWith(github.ref, 'refs/tags/v') }}
         uses: actions-hub/kubectl@master
         env:
           KUBE_HOST: ${{ secrets.KUBE_HOST }}
           KUBE_TOKEN: ${{ secrets.KUBE_TOKEN }}
         with:
-          args: annotate warehouse demo-app-simple -n demo-app-simple-stages reload=${{ github.sha }} --overwrite
+          args: annotate warehouse kargo-demo-simple -n kargo-demo-simple-stages reload=${{ github.sha }} --overwrite
+      - name: Reload warehouse kargo-demo-helm
+        if: ${{ github.event_name != 'pull_request' && startsWith(github.ref, 'refs/tags/v') }}
+        uses: actions-hub/kubectl@master
+        env:
+          KUBE_HOST: ${{ secrets.KUBE_HOST }}
+          KUBE_TOKEN: ${{ secrets.KUBE_TOKEN }}
+        with:
+          args: annotate warehouse kargo-demo-helm -n kargo-demo-helm-stages reload=${{ github.sha }} --overwrite
+      - name: Reload warehouse kargo-demo-kustomize
+        if: ${{ github.event_name != 'pull_request' && startsWith(github.ref, 'refs/tags/v') }}
+        uses: actions-hub/kubectl@master
+        env:
+          KUBE_HOST: ${{ secrets.KUBE_HOST }}
+          KUBE_TOKEN: ${{ secrets.KUBE_TOKEN }}
+        with:
+          args: annotate warehouse kargo-demo -n kargo-demo-kustomize-stages reload=${{ github.sha }} --overwrite
