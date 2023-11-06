@@ -1,0 +1,9 @@
+apiVersion: v2
+name: gitops-nginx-demo
+version: 0.1.0
+appVersion: 0.1.0
+dependencies:
+  - name: generic-chart
+    version: 2.3.0
+    repository: https://baloise-incubator.github.io/generic-chart/
+    alias: app
