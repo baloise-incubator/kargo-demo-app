@@ -107,9 +107,9 @@ jobs:
         if: ${{ github.event_name != 'pull_request' && startsWith(github.ref, 'refs/tags/v') }}
         run: |
           TAG=${{github.ref_name}}
-          yq e -i ".app.image.tag = \"${TAG}\"" charts/gitops-nginx-demo/values.yaml
-          yq e -i ".version = \"${TAG#v}\"" charts/gitops-nginx-demo/Chart.yaml
-          yq e -i ".appVersion = \"${TAG#v}\"" charts/gitops-nginx-demo/Chart.yaml
+          yq e -i ".app.image.tag = \"${TAG}\"" charts/kargo-demo-app/values.yaml
+          yq e -i ".version = \"${TAG#v}\"" charts/kargo-demo-app/Chart.yaml
+          yq e -i ".appVersion = \"${TAG#v}\"" charts/kargo-demo-app/Chart.yaml
       - name: Checkout forked chart-releaser
         if: ${{ github.event_name != 'pull_request' && startsWith(github.ref, 'refs/tags/v') }}
         uses: actions/checkout@v3
